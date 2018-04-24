@@ -1,0 +1,177 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+ion-input, ion-textarea{
+  background-color: rgb(200, 243, 222);
+  border-radius: 15px;
+  padding-left: 15px;
+}
+ion-label{
+  padding-left: 15px;
+}
+
+
+.kepala{
+  // max-height: 1%;
+  // min-height: 25%;
+}
+
+
+ion-modal.login-modal {
+
+    ion-backdrop {
+      visibility: visible;
+    }
+  
+
+  .modal-wrapper {
+    position: absolute;
+    overflow: hidden;
+    max-width: 350px;
+    max-height: 270px;
+    border-radius: 20px;
+    width: 80vw;
+    height: 60vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 0;
+    box-shadow: 0 16px 20px rgba(0,0,0,.4);
+    background-color: #fafafa;
+  }
+}
+
+.round{
+  border-radius: 50%;
+}
+
+
+#menu-material {
+  .no-scroll .scroll-content{
+    // overflow: hidden;
+  }
+  .menu-header {
+    width: 100%;
+    min-height: 25vh;
+    padding: 5px 15px;
+    background-image: url('../assets/imgs/buku.jpg');
+    background-color: hsl(260, 86%, 53%);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: 150%;
+    color: white;
+    vertical-align: bottom;
+    bottom: 5px;
+  }
+  .backText{
+    top: 90px;
+    position: relative;    
+    background-color: rgb(170, 170, 170);
+    opacity: 0.8;
+  }
+  .name {
+    top: 0px;
+    padding-left: 10px;
+    color: #f0f40b;
+    position: relative;
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-bottom: 3px;
+  }
+  .email {
+    padding-left: 10px;
+    top: 0px;    
+    position: relative;
+    color: #f3ff13;
+    // margin-top: 0;
+    margin-bottom: 5px;
+  }
+  .user-avatar {
+    padding: .5em;
+    height: 12vh;
+  }
+  h3,
+  .label,
+  {
+    color: #999;
+    font-weight: 400;
+  }
+  ion-icon {
+    color: #777;
+  }
+
+}
+
+
+$sm : 540px;
+$md : 720px;
+$lg : 960px;
+$xl : 1200px;
+
+.mainCol{
+    min-width: 60%;
+    &:first-of-type {
+        flex: 0 0 60%;
+    }
+    @media only screen and (max-width: $lg) {
+        min-width: 80%;
+        &:first-of-type {
+            flex: 0 0 80%;
+        }
+    }
+    @media only screen and (max-width: $md) {
+        min-width: 100%;
+        &:first-of-type {
+            flex: 0 0 100%;
+        }
+    }
+    @media only screen and (max-width: $sm) {
+        min-width: 100%;
+        &:first-of-type {
+            flex: 0 0 100%;
+        }
+    }
+}
+
+.sideCol{
+    max-width:20%;
+    &:first-of-type {
+        flex: 0 0 20%;
+    }
+    @media only screen and (max-width: $lg) {
+        max-width: 10%;
+        &:first-of-type {
+            flex: 0 0 10%;
+        }
+    }
+    @media only screen and (max-width: $md) {
+        max-width: 0%;
+        &:first-of-type {
+            flex: 0 0 0%;
+        }
+    }
+
+    @media only screen and (max-width: $sm) {
+        max-width: 00%;
+        &:first-of-type {
+            flex: 0 0 00%;
+        }
+    }
+}
+
+

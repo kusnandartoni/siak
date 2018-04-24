@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar color="light" text-center class="kepala">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-item color="header" text-left no-lines class="kepala">
+      <img padding-left src = "assets/imgs/twh.png" item-start style="width:10%">
+      <p class="judul"> Sekolah Dasar Negeri</p>
+    </ion-item>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+  <ion-grid>
+    <ion-row>
+      <ion-col class="left-side">
+        <ion-card class="card-user">
+          <div class="image">
+              <img src="assets/img/background.jpg" alt="..."/>
+          </div>
+          <div class="content" >
+            <div class="author" >
+              <!-- <ion-avatar class="avatar border-white" src="assets/img/faces/face-2.jpg"></ion-avatar> -->
+              <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
+              <h4 class="title">Chet Faker<br />
+                  <a href="#"><small>@chetfaker</small></a>
+              </h4>
+            </div>
+            <p class="description " text-center>
+                "I like the way you work it <br>
+                No diggity <br>
+                I wanna bag it up"
+            </p>
+          </div>
+          <hr>
+          <div text-center>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-md-3 offset-md-1>
+                  <h5>12<br /><small>Files</small></h5>                  
+                </ion-col>
+                <ion-col col-md-4>
+                  <h5>2GB<br /><small>Used</small></h5>
+                </ion-col>
+                <ion-col col-md-3>
+                  <h5>24,6$<br /><small>Spent</small></h5>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col class="right-side">
+        <ion-card>
+          <ion-card-header>
+            <h4 class="title">Edit Profile</h4>
+          </ion-card-header>
+          <ion-card-content>
+            <form action="#">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-md-5>
+                    <ion-item>
+                      <ion-label stacked>label</ion-label>
+                      <ion-input ></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-md-3>
+                    <ion-item>
+                      <ion-label stacked>label 2</ion-label>
+                      <ion-input ></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-md-4></ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-split-pane when="md">
+  <ion-menu [content]="content" id="menu-material">
+      <ion-content no-bounce class="no-scroll">
+      <ion-card no-padding no-margin class="menu-header">
+        <div class="backText">
+            <p class="name">Paula Bolliger</p>
+        </div>
+        <div class="backText">
+            <p class="email">pbolliger@email.com</p>
+        </div>
+      </ion-card>
+
+      <ion-list no-lines >
+        <button menuClose="left" ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon [name]="p.icon" item-left></ion-icon>
+          {{p.title}}
+        </button>
+        <button menuClose="left" ion-item detail-none (click)="logout()">
+          <ion-icon name="log-out" item-left></ion-icon>
+          Logout
+        </button>
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" main #content swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>

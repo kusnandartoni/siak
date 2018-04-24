@@ -1,0 +1,93 @@
+<ion-header showWhen="android,ios">
+  <ion-navbar color="header" text-center>
+    <ion-item color="header" no-lines>
+        <img padding-left src = "assets/imgs/twh.png" item-start style="width:20%">
+        <h1 ion-text class="marquee">
+          <span>{{namaSekolah | uppercase}}</span>
+        </h1>    
+      </ion-item>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-grid>
+    <ion-row>
+      <ion-col class="sideCol"></ion-col>
+      <ion-col  class="mainCol">
+        <ion-grid>
+          <ion-row hideWhen="android,ios">
+            <ion-card padding color="header" text-center>
+              <ion-item color="header" text-left>
+                <img padding-left src = "assets/imgs/twh.png" item-start style="width:10%">
+                <p class="judul"> {{namaSekolah | uppercase}}</p>
+              </ion-item>
+            </ion-card>
+          </ion-row>
+          <ion-row>
+            <ion-slides *ngIf="artikel && artikel.length" autoplay="3000" loop="true" pager="true" speed="2000">
+              <ion-slide *ngFor="let item of artikel">
+                <ion-card style="height:400px">
+                  <ion-card-header text-left>
+                    <h1><a>{{item.judul}}</a></h1>
+                    <h5>{{item.tanggal}}</h5>
+                  </ion-card-header>
+                  <ion-card-content text-left>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-12 col-sm><img [src]="item.gambar" style="width:300%;"></ion-col>
+                        <ion-col col-12 col-sm><p ion-text text-justify>{{item.isi}}</p></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-card-content>
+                </ion-card>
+              </ion-slide>
+            </ion-slides>
+          </ion-row>
+          <ion-row >
+            <ion-col col-12 col-sm>
+              <ion-card class="footer-left">
+                <ion-row>
+                  <ion-col col-4 col-sm text-center>
+                    <img src="assets/imgs/people.png" class="ruang" style="width:60%" (click)="login('Guru')">
+                    <h6>Ruang Guru</h6>
+                  </ion-col>
+                  <ion-col col-4 col-sm text-center>
+                    <img src="assets/imgs/avatar.png" class="ruang" style="width:60%" (click)="login('Wali')">
+                    <h6>Ruang Wali</h6>
+                  </ion-col>
+                  <ion-col col-4 col-sm text-center>
+                    <img src="assets/imgs/pen.png" class="ruang" style="width:60%" (click)="login('Admin')">
+                    <h6>Ruang Admin</h6>
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+            </ion-col>
+            <ion-col col-12 col-sm>
+              <ion-card class="footer-right">
+                <ion-grid>
+                  <ion-row no-margin>
+                    <ion-col col-1 no-margin><ion-icon name="home"></ion-icon></ion-col> 
+                    <ion-col col-11 no-margin>: {{alamatSekolah}}</ion-col>
+                  </ion-row>
+                  <ion-row no-margin>
+                    <ion-col col-1 no-margin><ion-icon name="call"></ion-icon></ion-col> 
+                    <ion-col col-11 no-margin>: {{telpSekolah}}</ion-col>
+                  </ion-row>
+                  <ion-row no-margin>
+                    <ion-col col-1 no-margin><ion-icon name="print"></ion-icon></ion-col> 
+                    <ion-col col-11 no-margin>: {{faxSekolah}}</ion-col>
+                  </ion-row>
+                  <ion-row no-margin>
+                    <ion-col col-1 no-margin><ion-icon name="mail"></ion-icon></ion-col> 
+                    <ion-col col-11 no-margin>: {{emailSekolah}}</ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col class="sideCol"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
