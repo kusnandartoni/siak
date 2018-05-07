@@ -2,12 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
-/**
- * Generated class for the CreateArtikelPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,12 +10,14 @@ import { Http } from '@angular/http';
 })
 export class CreateArtikelPage {
   public namaSekolah: string;
+  public listArtikel: any;
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateArtikelPage');
     this.getProfilSekolah();
+    this.getListArtikel();
   }
 
   getProfilSekolah(){
@@ -30,6 +26,17 @@ export class CreateArtikelPage {
     .subscribe(
       data=>{
         this.namaSekolah = data.nama;
+      }
+    );
+  }
+
+  getListArtikel(){
+    this.http.get('assets/data/artikel.json')
+    .map(res=>res.json().records)
+    .subscribe(
+      data=>{
+        this.listArtikel = data;
+        console.log(this.listArtikel);
       }
     );
   }

@@ -1,0 +1,35 @@
+[33mcommit 400202b7ae8f1854ddfbec174a2e069f9de6354d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: kusnandartoni <kusnandartoni@gmail.com>
+Date:   Tue May 1 12:40:31 2018 +0700
+
+    fix header link
+
+[33mcommit 77aeb31ef919f6e68d164990788795511342d40a[m
+Author: kusnandartoni <kusnandartoni@gmail.com>
+Date:   Fri Apr 27 06:03:33 2018 +0700
+
+    layout profile siswa
+
+[33mcommit bbee6e8681d767666b91b5ef0d074ebdb45443ae[m
+Author: kusnandartoni <kusnandartoni@gmail.com>
+Date:   Thu Apr 26 06:10:16 2018 +0700
+
+    remove profile card
+
+[33mcommit 2513c80aecd4d9dd4a3936fe9b5c8e02dcfc6367[m
+Author: kusnandartoni <kusnandartoni@gmail.com>
+Date:   Wed Apr 25 06:31:13 2018 +0700
+
+    data profil siswa
+
+[33mcommit d946075b50fb05ad308a852df8826ea2ac476ba9[m
+Author: kusnandartoni <kusnandartoni@gmail.com>
+Date:   Tue Apr 24 21:34:03 2018 +0700
+
+    initial commit
+
+[33mcommit beedfb8043115d4e1895f5c2cba6998f9850af65[m
+Author: Kusnandartoni <kusnandartoni@gmail.com>
+Date:   Tue Apr 24 21:16:57 2018 +0700
+
+    Initial commit

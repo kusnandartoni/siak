@@ -29,8 +29,9 @@
               <ion-col col-2>tanggal</ion-col>
               <ion-col col-10>judul</ion-col>
             </ion-row>
-            <ion-row>
-
+            <ion-row *ngFor="let list of listArtikel">
+              <ion-col col-2>tanggal</ion-col>
+              <ion-col col-10>judul</ion-col>
             </ion-row>
            </ion-grid> 
           </ion-card-content>
