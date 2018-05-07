@@ -8,11 +8,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginComponent } from '../components/login/login';
 import { HttpModule } from '@angular/http';
+import { AddArtikelComponent } from '../components/add-artikel/add-artikel';
 
 @NgModule({
   declarations: [
     MyApp,
-    LoginComponent
+    LoginComponent,
+    AddArtikelComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { HttpModule } from '@angular/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginComponent
+    LoginComponent,
+    AddArtikelComponent
   ],
   providers: [
     StatusBar,

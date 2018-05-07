@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
+import { AddArtikelComponent } from '../../components/add-artikel/add-artikel';
 
 @IonicPage()
 @Component({
@@ -12,7 +13,12 @@ export class CreateArtikelPage {
   public namaSekolah: string;
   public listArtikel: any;
   
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public http: Http,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public mdlCtrl: ModalController
+  ) {
   }
 
   ionViewDidLoad() {
@@ -42,4 +48,16 @@ export class CreateArtikelPage {
     );
  }
 
+ popup(){
+  let modal = this.mdlCtrl.create(AddArtikelComponent, {},{enableBackdropDismiss:false});
+  modal.present();
+  modal.onDidDismiss(
+    data=>{
+      // if(data){
+        
+      //   this.navCtrl.setRoot('ProfilSiswaPage');
+      // }
+    }
+  );
+ }
 }

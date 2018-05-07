@@ -1,19 +1,19 @@
 <!-- Generated template for the LoginComponent component -->
 <ion-header>
   <ion-navbar text-center [color]="color">
-      <ion-title>Login Ruang {{role}}</ion-title>
+      <ion-title>Artikel</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content no-bounce class="no-scroll">
-  <form [formGroup]="formLogin" (ngSubmit)="doLogin()">
+  <form>
       <ion-item class="input" no-lines>
           <ion-label floating class="label" >Username</ion-label>
-          <ion-input type="text" formControlName="clientId" [class]="color"></ion-input>
+          <ion-input type="text" [class]="color"></ion-input>
       </ion-item>
       <ion-item class="input" no-lines>
           <ion-label floating class="label">Password</ion-label>
-          <ion-input type="password" formControlName="password" [class]="color"></ion-input>
+          <ion-input type="password" [class]="color"></ion-input>
       </ion-item>
       <ion-item no-lines>
           <a ion-button round small float-left outline color="secondary" (click)="dismiss()">Batal</a>

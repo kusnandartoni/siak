@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Renderer } from '@angular/core';
+import { ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the AddArtikelComponent component.
@@ -14,9 +15,11 @@ export class AddArtikelComponent {
 
   text: string;
 
-  constructor() {
-    console.log('Hello AddArtikelComponent Component');
-    this.text = 'Hello World';
+  constructor(
+    public render: Renderer,
+    public viewCtrl: ViewController
+  ) {
+    this.render.setElementClass(viewCtrl.pageRef().nativeElement, 'add-article-popup',true);
   }
 
 }

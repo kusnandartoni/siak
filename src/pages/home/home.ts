@@ -45,7 +45,7 @@ export class HomePage {
           this.navCtrl.setRoot('ProfilSiswaPage');
         }
       }
-    )
+    );
   }  
 
   getProfilSekolah(){
