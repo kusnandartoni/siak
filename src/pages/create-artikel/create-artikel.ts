@@ -16,12 +16,16 @@ import { Http } from '@angular/http';
 })
 export class CreateArtikelPage {
   public namaSekolah: string;
+
+  listArtikel: any = [];
+
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateArtikelPage');
     this.getProfilSekolah();
+    this.getListArtikel();
   }
 
   getProfilSekolah(){
@@ -32,6 +36,17 @@ export class CreateArtikelPage {
         this.namaSekolah = data.nama;
       }
     );
+  }
+
+  getListArtikel(){
+    this.http.get('assets/data/artikel.json')
+    .map(res=>res.json().records)
+    .subscribe(
+      data=>{
+        console.log(data);
+        this.listArtikel = data;
+      }
+    )
   }
 
 }
