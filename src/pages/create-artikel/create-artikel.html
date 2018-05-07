@@ -26,12 +26,14 @@
           <ion-card-content no-padding>
            <ion-grid>
             <ion-row class="headtable" text-center>
-              <ion-col col-2>tanggal</ion-col>
-              <ion-col col-10>judul</ion-col>
+              <ion-col col-2><b>TANGGAL</b></ion-col>
+              <ion-col col-10><b>JUDUL</b></ion-col>
             </ion-row>
-            <ion-row *ngFor="let list of listArtikel">
-              <ion-col col-2>tanggal</ion-col>
-              <ion-col col-10>judul</ion-col>
+
+            <ion-row text-center *ngFor="let list of listArtikel">
+              <ion-col col-2>{{list.tanggal}}</ion-col>
+              <ion-col col-9 text-left>{{list.judul}}</ion-col>
+              <ion-col col-1><button ion-button icon-only small clean outline><ion-icon name="trash"></ion-icon> </button></ion-col>
             </ion-row>
            </ion-grid> 
           </ion-card-content>

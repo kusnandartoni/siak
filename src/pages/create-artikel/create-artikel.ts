@@ -11,6 +11,7 @@ import { Http } from '@angular/http';
 export class CreateArtikelPage {
   public namaSekolah: string;
   public listArtikel: any;
+  
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -39,6 +40,6 @@ export class CreateArtikelPage {
         console.log(this.listArtikel);
       }
     );
-  }
+ }
 
 }
