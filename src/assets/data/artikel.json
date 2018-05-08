@@ -1,32 +1,42 @@
 {
     "records":[
         {
+            "id": "1",
             "judul":"Judul Artikel 1",
             "tanggal":"01/01/2018",
             "gambar":"assets/imgs/article/gambar1.jpg",
             "isi":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer placerat placerat placerat. In egestas commodo consequat. Integer maximus elementum lobortis. Ut nibh nulla, tristique sit amet leo euismod, tempor scelerisque nulla. Fusce dapibus leo arcu, id volutpat erat pellentesque nec. Nulla tincidunt, est vitae gravida mollis, elit libero aliquam dolor, in ultricies diam libero eget sapien. Sed sagittis iaculis eros, vitae venenatis nulla vehicula ac. Quisque ac mauris iaculis, congue dolor a, convallis leo. Nam pharetra convallis dolor, in luctus ipsum. Quisque id velit nisl. Phasellus ac aliquam ipsum."
         },
         {
+            "id": "2",
             "judul":"Judul Artikel 2",
             "tanggal":"21/01/2018",
             "gambar":"assets/imgs/article/gambar1.jpg",
             "isi":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer placerat placerat placerat. In egestas commodo consequat. Integer maximus elementum lobortis. Ut nibh nulla, tristique sit amet leo euismod, tempor scelerisque nulla. Fusce dapibus leo arcu, id volutpat erat pellentesque nec. Nulla tincidunt, est vitae gravida mollis, elit libero aliquam dolor, in ultricies diam libero eget sapien. Sed sagittis iaculis eros, vitae venenatis nulla vehicula ac. Quisque ac mauris iaculis, congue dolor a, convallis leo. Nam pharetra convallis dolor, in luctus ipsum. Quisque id velit nisl. Phasellus ac aliquam ipsum."
-        },        {
+        },        
+        {
+            "id": "3",
             "judul":"Judul Artikel 3",
             "tanggal":"31/01/2018",
             "gambar":"assets/imgs/article/gambar1.jpg",
             "isi":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer placerat placerat placerat. In egestas commodo consequat. Integer maximus elementum lobortis. Ut nibh nulla, tristique sit amet leo euismod, tempor scelerisque nulla. Fusce dapibus leo arcu, id volutpat erat pellentesque nec. Nulla tincidunt, est vitae gravida mollis, elit libero aliquam dolor, in ultricies diam libero eget sapien. Sed sagittis iaculis eros, vitae venenatis nulla vehicula ac. Quisque ac mauris iaculis, congue dolor a, convallis leo. Nam pharetra convallis dolor, in luctus ipsum. Quisque id velit nisl. Phasellus ac aliquam ipsum."
-        },        {
+        },        
+        {
+            "id": "4",
             "judul":"Judul Artikel 4",
             "tanggal":"28/02/2018",
             "gambar":"assets/imgs/article/gambar1.jpg",
             "isi":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer placerat placerat placerat. In egestas commodo consequat. Integer maximus elementum lobortis. Ut nibh nulla, tristique sit amet leo euismod, tempor scelerisque nulla. Fusce dapibus leo arcu, id volutpat erat pellentesque nec. Nulla tincidunt, est vitae gravida mollis, elit libero aliquam dolor, in ultricies diam libero eget sapien. Sed sagittis iaculis eros, vitae venenatis nulla vehicula ac. Quisque ac mauris iaculis, congue dolor a, convallis leo. Nam pharetra convallis dolor, in luctus ipsum. Quisque id velit nisl. Phasellus ac aliquam ipsum."
-        },        {
+        },        
+        {
+            "id": "5",
             "judul":"Judul Artikel 5",
             "tanggal":"05/03/2018",
             "gambar":"assets/imgs/article/gambar1.jpg",
             "isi":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer placerat placerat placerat. In egestas commodo consequat. Integer maximus elementum lobortis. Ut nibh nulla, tristique sit amet leo euismod, tempor scelerisque nulla. Fusce dapibus leo arcu, id volutpat erat pellentesque nec. Nulla tincidunt, est vitae gravida mollis, elit libero aliquam dolor, in ultricies diam libero eget sapien. Sed sagittis iaculis eros, vitae venenatis nulla vehicula ac. Quisque ac mauris iaculis, congue dolor a, convallis leo. Nam pharetra convallis dolor, in luctus ipsum. Quisque id velit nisl. Phasellus ac aliquam ipsum."
-        },        {
+        },        
+        {
+            "id": "6",
             "judul":"Judul Artikel 6",
             "tanggal":"28/03/2018",
             "gambar":"assets/imgs/article/gambar1.jpg",

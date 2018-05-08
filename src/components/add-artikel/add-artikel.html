@@ -6,19 +6,57 @@
 </ion-header>
 
 <ion-content no-bounce class="no-scroll">
-  <form>
-      <ion-item class="input" no-lines>
-          <ion-label floating class="label" >Username</ion-label>
-          <ion-input type="text" [class]="color"></ion-input>
-      </ion-item>
-      <ion-item class="input" no-lines>
-          <ion-label floating class="label">Password</ion-label>
-          <ion-input type="password" [class]="color"></ion-input>
-      </ion-item>
-      <ion-item no-lines>
-          <a ion-button round small float-left outline color="secondary" (click)="dismiss()">Batal</a>
-          <button ion-button round small float-right [color]="color">Masuk</button>
-      </ion-item>
-  </form>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item class="input" no-lines>
+                    <ion-label stacked class="label" >Id</ion-label>
+                    <ion-input type="text" [class]="color"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item class="input" no-lines>
+                    <ion-label stacked class="label" >Tanggal</ion-label>
+                    <ion-input type="text" [class]="color"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="input" no-lines>
+                    <ion-label stacked class="label">Judul</ion-label>
+                    <ion-input type="password" [class]="color"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="input" no-lines>
+                    <ion-label stacked class="label">Gambar</ion-label>
+                    <ion-input type="password" [class]="color"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="input" no-lines>
+                    <ion-label stacked class="label">Isi</ion-label>
+                    <ion-textarea [class]="color" rows="20"></ion-textarea>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
+<ion-footer>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item no-lines>
+                    <a ion-button round small float-left outline color="secondary" (click)="dismiss()">Batal</a>
+                    <button ion-button round small float-right [color]="color">Masuk</button>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>
 
