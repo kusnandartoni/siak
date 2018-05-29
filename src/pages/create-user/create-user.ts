@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
+import { AddUserComponent } from '../../components/add-user/add-user';
 
 /**
  * Generated class for the CreateUserPage page.
@@ -18,7 +19,12 @@ import { Http } from '@angular/http';
 export class CreateUserPage {
   public namaSekolah: string;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public http: Http, 
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public mdlCtrl: ModalController
+  ) {
   
   }
 
@@ -36,5 +42,18 @@ export class CreateUserPage {
       }
     );
   }
+
+  popup(){
+    let modal = this.mdlCtrl.create(AddUserComponent, {},{enableBackdropDismiss:false});
+    modal.present();
+    modal.onDidDismiss(
+      data=>{
+        // if(data){
+          
+        //   this.navCtrl.setRoot('ProfilSiswaPage');
+        // }
+      }
+    );
+   }
 
 }

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
-import { Http } from '@angular/http';
 import { AddArtikelComponent } from '../../components/add-artikel/add-artikel';
+import { ToolsProvider } from '../../providers/tools/tools';
+import { ApiProvider } from '../../providers/api/api';
 
 @IonicPage()
 @Component({
@@ -14,10 +15,11 @@ export class CreateArtikelPage {
   public listArtikel: any;
   
   constructor(
-    public http: Http,
+    public api: ApiProvider,
     public navCtrl: NavController,
     public navParams: NavParams,
-    public mdlCtrl: ModalController
+    public mdlCtrl: ModalController,
+    public tools: ToolsProvider
   ) {
   }
 
@@ -28,9 +30,7 @@ export class CreateArtikelPage {
   }
 
   getProfilSekolah(){
-    this.http.get('assets/data/profilSekolah.json')
-    .map(res=>res.json())
-    .subscribe(
+    this.api.getDataSekolah().subscribe(
       data=>{
         this.namaSekolah = data.nama;
       }
@@ -38,15 +38,29 @@ export class CreateArtikelPage {
   }
 
   getListArtikel(){
-    this.http.get('assets/data/artikel.json')
-    .map(res=>res.json().records)
-    .subscribe(
+    this.api.getArtikelAll().subscribe(
       data=>{
         this.listArtikel = data;
-        console.log(this.listArtikel);
       }
     );
- }
+    // this.http.get('assets/data/artikel.json')
+    // .map(res=>res.json().records)
+    // .subscribe(
+    //   data=>{
+    //     this.listArtikel = data;
+    //     // console.log(this.listArtikel);
+    //   }
+    // );
+  }
+
+  openEdit(id:string){
+    this.tools.showAlert('info','edit article id: '+ id);
+  }
+
+  deleteArticle(id:string){
+    this.tools.showAlert('info','delete article id: '+ id);
+  }
+
 
  popup(){
   let modal = this.mdlCtrl.create(AddArtikelComponent, {},{enableBackdropDismiss:false});

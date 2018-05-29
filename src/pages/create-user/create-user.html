@@ -13,21 +13,22 @@
 
 <ion-content>
   <ion-grid no-margin>
-    <ion-row no-padding no-margin>
+    <ion-row  no-margin>
       <ion-col class="sideCol"></ion-col>
-      <ion-col class="mainCol" no-padding no-margin>
+      <ion-col class="mainCol"  no-margin>
         <ion-card padding>
-          <ion-card-header no-padding no-margin>
-            <ion-item color="primary" text-center no-padding>
-              <button ion-button icon-only float-end ><ion-icon name="add-circle"></ion-icon></button>
+          <ion-card-header  no-margin>
+            <ion-item color="primary" text-center >
+              <button ion-button icon-only float-end (click)="popup()"><ion-icon name="add-circle"></ion-icon></button>
               <h1 ion-text color="light">List User</h1>
             </ion-item>
           </ion-card-header>
-          <ion-card-content no-padding>
+          <ion-card-content >
            <ion-grid>
             <ion-row class="headtable" text-center>
-              <ion-col col-2>tanggal</ion-col>
-              <ion-col col-10>judul</ion-col>
+              <ion-col col-2>nisn</ion-col>
+              <ion-col col-9>nama</ion-col>
+              <ion-col col-1>kelas</ion-col>
             </ion-row>
             <ion-row>
               

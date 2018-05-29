@@ -1,5 +1,6 @@
 import { Component, Renderer } from '@angular/core';
 import { ViewController } from 'ionic-angular';
+import { ToolsProvider } from '../../providers/tools/tools';
 
 /**
  * Generated class for the AddArtikelComponent component.
@@ -17,9 +18,20 @@ export class AddArtikelComponent {
 
   constructor(
     public render: Renderer,
-    public viewCtrl: ViewController
+    public viewCtrl: ViewController,
+    public tools: ToolsProvider
   ) {
     this.render.setElementClass(viewCtrl.pageRef().nativeElement, 'add-article-popup',true);
   }
+
+  tambah(){
+    this.tools.showAlert('info','button tambah ditekan');
+  }
+
+  dismiss(){
+    this.viewCtrl.dismiss();
+  }
+
+
 
 }

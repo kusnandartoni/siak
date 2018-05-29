@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController, ModalController, Platform, IonicPage } from 'ionic-angular';
 import { LoginComponent } from '../../components/login/login';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { ApiProvider } from '../../providers/api/api';
+
 
 
 @IonicPage()
@@ -23,10 +23,10 @@ export class HomePage {
   public isMD: boolean = false;
 
   constructor(
+    public api: ApiProvider,
     public navCtrl: NavController,
     public menu: MenuController,
     public mdlCtrl: ModalController,
-    public http: Http,
     public platform: Platform
   ) {
     this.menu.enable(false);
@@ -49,8 +49,8 @@ export class HomePage {
   }  
 
   getProfilSekolah(){
-    this.http.get('assets/data/profilSekolah.json')
-    .map(res=>res.json())
+    
+    this.api.getDataSekolah()
     .subscribe(
       data=>{
         this.namaSekolah = data.nama;
@@ -63,13 +63,19 @@ export class HomePage {
   }
 
   getArticle(){
-    this.http.get('assets/data/artikel.json')
-    .map(res=>res.json().records)
-    .subscribe(
+    this.api.getArtikelAll().subscribe(
       data=>{
+        console.log(data)
         this.artikel = data;
       }
     );
+    // this.http.get('assets/data/artikel.json')
+    // .map(res=>res.json().records)
+    // .subscribe(
+    //   data=>{
+    //     this.artikel = data;
+    //   }
+    // );
   }
 
 
