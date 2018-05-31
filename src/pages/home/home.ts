@@ -69,13 +69,6 @@ export class HomePage {
         this.artikel = data;
       }
     );
-    // this.http.get('assets/data/artikel.json')
-    // .map(res=>res.json().records)
-    // .subscribe(
-    //   data=>{
-    //     this.artikel = data;
-    //   }
-    // );
   }
 
 

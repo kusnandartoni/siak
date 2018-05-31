@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import 'rxjs/add/operator/map';
-import { Http } from '@angular/http';
-
-/**
- * Generated class for the RaportPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ApiProvider } from '../../providers/api/api';
 
 @IonicPage()
 @Component({
@@ -20,7 +12,7 @@ export class RaportPage {
   public namaSekolah: string;
 
   constructor(
-    public http: Http,
+    public api: ApiProvider,
     public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -30,13 +22,11 @@ export class RaportPage {
   }
 
   getProfilSekolah(){
-    this.http.get('assets/data/profilSekolah.json')
-    .map(res=>res.json())
-    .subscribe(
+    this.api.getDataSekolah().subscribe(
       data=>{
         this.namaSekolah = data.nama;
       }
-    );
+    )
   }
 
 }

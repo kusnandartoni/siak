@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import 'rxjs/add/operator/map';
-import { Http } from '@angular/http';
 import { AddUserComponent } from '../../components/add-user/add-user';
-
-/**
- * Generated class for the CreateUserPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ApiProvider } from '../../providers/api/api';
 
 @IonicPage()
 @Component({
@@ -20,7 +12,7 @@ export class CreateUserPage {
   public namaSekolah: string;
 
   constructor(
-    public http: Http, 
+    public api: ApiProvider,
     public navCtrl: NavController, 
     public navParams: NavParams,
     public mdlCtrl: ModalController
@@ -34,13 +26,11 @@ export class CreateUserPage {
   }
 
   getProfilSekolah(){
-    this.http.get('assets/data/profilSekolah.json')
-    .map(res=>res.json())
-    .subscribe(
+    this.api.getDataSekolah().subscribe(
       data=>{
         this.namaSekolah = data.nama;
       }
-    );
+    )
   }
 
   popup(){

@@ -24,7 +24,6 @@ export class CreateArtikelPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateArtikelPage');
     this.getProfilSekolah();
     this.getListArtikel();
   }
@@ -43,18 +42,17 @@ export class CreateArtikelPage {
         this.listArtikel = data;
       }
     );
-    // this.http.get('assets/data/artikel.json')
-    // .map(res=>res.json().records)
-    // .subscribe(
-    //   data=>{
-    //     this.listArtikel = data;
-    //     // console.log(this.listArtikel);
-    //   }
-    // );
   }
 
   openEdit(id:string){
-    this.tools.showAlert('info','edit article id: '+ id);
+    // this.tools.showAlert('info','edit article id: '+ id);
+    let modal = this.mdlCtrl.create(AddArtikelComponent, {idArtikel: id},{enableBackdropDismiss:false});
+      modal.present();
+      modal.onDidDismiss(
+        data=>{
+          this.getListArtikel();
+        }
+      );
   }
 
   deleteArticle(id:string){
@@ -67,11 +65,9 @@ export class CreateArtikelPage {
   modal.present();
   modal.onDidDismiss(
     data=>{
-      // if(data){
-        
-      //   this.navCtrl.setRoot('ProfilSiswaPage');
-      // }
+      this.getListArtikel();
     }
   );
  }
+
 }

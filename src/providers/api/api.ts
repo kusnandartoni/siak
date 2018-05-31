@@ -32,4 +32,22 @@ export class ApiProvider {
       .map(res=>res.json().records);
   }
 
+  getArtikel(id:string){
+    return this.http.get(`${this.apiUrl}/artikel/read_one.php?id=${id}`)
+      .map(res=>res.json());
+  }
+
+  updateArtikel(data){
+    let headers = this._getHeaders()
+    return this.http.post(`${this.apiUrl}/artikel/update.php`,data,{headers:headers})
+      .map(res=>res.json());
+  }
+
+  addArtikel(data){
+    console.log('api')
+    let headers = this._getHeaders()
+    return this.http.post(`${this.apiUrl}/artikel/create.php`,data,{headers:headers})
+      .map(res=>res.json());
+  }
+
 }

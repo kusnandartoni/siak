@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-
-/**
- * Generated class for the InputNilaiPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ApiProvider } from '../../providers/api/api';
 
 @IonicPage()
 @Component({
@@ -19,7 +11,11 @@ export class InputNilaiPage {
 
   public namaSekolah: string;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public api: ApiProvider,
+    public navCtrl: NavController, 
+    public navParams: NavParams
+  ) {
   }
 
   ionViewDidLoad() {
@@ -28,14 +24,11 @@ export class InputNilaiPage {
   }
 
   getProfilSekolah(){
-    this.http.get('assets/data/profilSekolah.json')
-    .map(res=>res.json())
-    .subscribe(
+    this.api.getDataSekolah().subscribe(
       data=>{
         this.namaSekolah = data.nama;
       }
-    );
+    )
   }
-
 
 }

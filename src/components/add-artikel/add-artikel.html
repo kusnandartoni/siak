@@ -11,13 +11,13 @@
             <ion-col>
                 <ion-item class="input" no-lines>
                     <ion-label stacked class="label" >Id</ion-label>
-                    <ion-input type="text" [class]="color"></ion-input>
+                    <ion-input type="text" [(ngModel)]="id" [class]="color" [disabled]="isUpdate"></ion-input>
                 </ion-item>
             </ion-col>
             <ion-col>
                 <ion-item class="input" no-lines>
                     <ion-label stacked class="label" >Tanggal</ion-label>
-                    <ion-input type="text" [class]="color"></ion-input>
+                    <ion-input type="text" [(ngModel)]="tanggal" [class]="color"></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -25,7 +25,7 @@
             <ion-col>
                 <ion-item class="input" no-lines>
                     <ion-label stacked class="label">Judul</ion-label>
-                    <ion-input type="password" [class]="color"></ion-input>
+                    <ion-input type="text" [(ngModel)]="judul" [class]="color"></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -33,7 +33,7 @@
             <ion-col>
                 <ion-item class="input" no-lines>
                     <ion-label stacked class="label">Gambar</ion-label>
-                    <ion-input type="password" [class]="color"></ion-input>
+                    <ion-input type="text" [(ngModel)]="gambar" [class]="color"></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -41,7 +41,7 @@
             <ion-col>
                 <ion-item class="input" no-lines>
                     <ion-label stacked class="label">Isi</ion-label>
-                    <ion-textarea [class]="color" rows="20"></ion-textarea>
+                    <ion-textarea [class]="color" [(ngModel)]="isi" rows="20"></ion-textarea>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -53,7 +53,7 @@
             <ion-col>
                 <ion-item no-lines>
                     <a ion-button round small float-left outline color="secondary" (click)="dismiss()">Batal</a>
-                    <button ion-button round small float-right [color]="color" (click)="tambah()">Tambah</button>
+                    <button ion-button round small float-right [color]="color" (click)="simpan()">Simpan</button>
                 </ion-item>
             </ion-col>
         </ion-row>
