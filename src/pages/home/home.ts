@@ -65,7 +65,7 @@ export class HomePage {
   getArticle(){
     this.api.getArtikelAll().subscribe(
       data=>{
-        console.log(data)
+        // console.log(data)
         this.artikel = data;
       }
     );

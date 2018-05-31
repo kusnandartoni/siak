@@ -21,7 +21,6 @@ export class ProfilSiswaPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilSiswaPage');
     this.getProfilSekolah();
     this.menu.enable(true);
   }

@@ -8,8 +8,10 @@ import { ToolsProvider } from '../../providers/tools/tools';
 })
 export class AddUserComponent {
 
-  text: string;
-
+  public nama: string;
+  public nisn: string;
+  public tglLahir: string;
+  
   constructor(
     public render: Renderer,
     public viewCtrl: ViewController,
@@ -23,6 +25,6 @@ export class AddUserComponent {
   }
 
   tambah(){
-    this.tools.showAlert('info','button tambah ditekan');
+    this.tools.showAlert('info','button tambah ditekan '+this.tglLahir);
   }
 }

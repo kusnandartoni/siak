@@ -10,24 +10,24 @@
         <ion-row>
             <ion-col>
                 <ion-item class="input" no-lines>
-                    <ion-label stacked class="label" >Id</ion-label>
-                    <ion-input type="text" [class]="color"></ion-input>
+                    <ion-label stacked class="label" >Nisn</ion-label>
+                    <ion-input type="text" text-center [(ngModel)]="nisn" [class]="color"></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col>
                 <ion-item class="input" no-lines>
-                    <ion-label stacked class="label">Judul</ion-label>
-                    <ion-input type="password" [class]="color"></ion-input>
+                    <ion-label stacked class="label">Nama</ion-label>
+                    <ion-input type="text" text-center [(ngModel)]="nama" [class]="color"></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col>
-                <ion-item class="input" no-lines>
-                    <ion-label stacked class="label">Gambar</ion-label>
-                    <ion-input type="password" [class]="color"></ion-input>
+                <ion-item class="input" no-lines text-center>
+                    <ion-label stacked class="label" text-start>Tanggal Lahir</ion-label>
+                    <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="tglLahir" [class]="color"></ion-datetime>
                 </ion-item>
             </ion-col>
         </ion-row>

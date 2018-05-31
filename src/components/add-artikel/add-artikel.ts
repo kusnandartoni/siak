@@ -12,7 +12,7 @@ export class AddArtikelComponent {
   public id:string = 'r';
   public judul:string;
   public gambar:string;
-  public tanggal:string;
+  public tanggal:string= 'YYYY-MM-DD';
   public isi:string;
 
   isUpdate: boolean = true;

@@ -56,7 +56,12 @@ export class CreateArtikelPage {
   }
 
   deleteArticle(id:string){
-    this.tools.showAlert('info','delete article id: '+ id);
+    this.api.removeArtikel(id).subscribe(
+      res=>{
+        this.tools.showAlert('info',res.message);
+        this.getListArtikel();        
+      }
+    )
   }
 
 

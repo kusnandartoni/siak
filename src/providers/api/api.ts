@@ -44,9 +44,13 @@ export class ApiProvider {
   }
 
   addArtikel(data){
-    console.log('api')
     let headers = this._getHeaders()
     return this.http.post(`${this.apiUrl}/artikel/create.php`,data,{headers:headers})
+      .map(res=>res.json());
+  }
+
+  removeArtikel(id:string){
+    return this.http.get(`${this.apiUrl}/artikel/delete.php?id=${id}`)
       .map(res=>res.json());
   }
 
