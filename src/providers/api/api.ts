@@ -10,6 +10,7 @@ export class ApiProvider {
   constructor(public http: Http) {
     // console.log('Hello ApiProvider Provider');
   }
+  
   _getHeaders() {
     let headers = new Headers();    
     headers.append('Content-Type', 'x-www-form-urlencoded');
@@ -51,6 +52,32 @@ export class ApiProvider {
 
   removeArtikel(id:string){
     return this.http.get(`${this.apiUrl}/artikel/delete.php?id=${id}`)
+      .map(res=>res.json());
+  }
+
+  getListSiswa(){
+    return this.http.get(`${this.apiUrl}/siswa/read.php`)
+      .map(res=>res.json().records);
+  }
+
+  getSiswa(nisn:string){
+    return this.http.get(`${this.apiUrl}/siswa/read_one.php?nisn=${nisn}`)
+      .map(res=>res.json());
+  }
+
+  addSiswa(data){
+    console.log('api',data);
+    let headers = this._getHeaders()
+    return this.http.post(`${this.apiUrl}/siswa/create.php`,data,{headers:headers})
+      .map(res=>res.json());
+  }
+  updateSiswa(data){
+    let headers = this._getHeaders()
+    return this.http.post(`${this.apiUrl}/siswa/update.php`,data,{headers:headers})
+      .map(res=>res.json());
+  }
+  removeSiswa(nisn:string){
+    return this.http.get(`${this.apiUrl}/siswa/delete.php?nisn=${nisn}`)
       .map(res=>res.json());
   }
 

@@ -59,7 +59,7 @@ export class AddArtikelComponent {
   }
 
   tambah(){
-    console.log('tambah');
+    // console.log('tambah');
     this.api.addArtikel(this.option()).subscribe(
       res=>{
         console.log('res',res)

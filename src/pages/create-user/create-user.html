@@ -27,11 +27,16 @@
            <ion-grid>
             <ion-row class="headtable" text-center>
               <ion-col col-2>nisn</ion-col>
-              <ion-col col-9>nama</ion-col>
-              <ion-col col-1>kelas</ion-col>
+              <ion-col col-5>nama</ion-col>
+              <ion-col col-3>tgl_lahir</ion-col>
+              <ion-col col-2></ion-col>
             </ion-row>
-            <ion-row>
-              
+            <ion-row *ngFor="let siswa of listSiswa">
+              <ion-col col-2>{{siswa.nisn}}</ion-col>
+              <ion-col col-5>{{siswa.nama}}</ion-col>
+              <ion-col col-3 text-center>{{siswa.tgl_lahir}}</ion-col>
+              <ion-col col-1><button ion-button icon-only small clean outline (click)="openEdit(siswa.nisn)"><ion-icon name="create"></ion-icon> </button></ion-col>
+              <ion-col col-1><button ion-button icon-only small clean outline (click)="deleteSiswa(siswa.nisn)"><ion-icon name="trash"></ion-icon> </button></ion-col>
             </ion-row>
            </ion-grid> 
           </ion-card-content>

@@ -11,6 +11,66 @@
 </ion-header>
 
 
-<ion-content padding>
-
-</ion-content>
+<ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="sideCol"></ion-col>
+        <ion-col class="mainCol">
+          <ion-card >
+            <ion-card-header>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                      <button ion-button full>Input Nilai</button>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-4>
+                    <ion-item class="pilihan" text-center>
+                      <ion-label text-left>Tahun Ajaran</ion-label>
+                      <ion-select>
+                        <ion-option value="f">Female</ion-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-4>
+                    <ion-item class="pilihan" text-center>
+                      <ion-label text-left>Kelas</ion-label>
+                      <ion-select>
+                        <ion-option value="f">Female</ion-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-4>
+                    <ion-item class="pilihan" text-center>
+                      <ion-label text-left>Mata Pelajaran</ion-label>
+                      <ion-select>
+                        <ion-option value="f">Female</ion-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-1>No</ion-col>
+                    <ion-col col-7>Mata Pelajaran</ion-col>
+                    <ion-col col-2>KKM</ion-col>
+                    <ion-col col-2>Nilai</ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col></ion-col>
+                    <ion-col></ion-col>
+                    <ion-col></ion-col>
+                    <ion-col></ion-col>
+                  </ion-row>
+                </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col class="sideCol"></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>

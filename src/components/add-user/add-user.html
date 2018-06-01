@@ -27,7 +27,7 @@
             <ion-col>
                 <ion-item class="input" no-lines text-center>
                     <ion-label stacked class="label" text-start>Tanggal Lahir</ion-label>
-                    <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="tglLahir" [class]="color"></ion-datetime>
+                    <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="tgl_lahir" [class]="color"></ion-datetime>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -39,7 +39,7 @@
             <ion-col>
                 <ion-item no-lines>
                     <a ion-button round small float-left outline color="secondary" (click)="dismiss()">Batal</a>
-                    <button ion-button round small float-right [color]="color" (click)="tambah()">Tambah</button>
+                    <button ion-button round small float-right [color]="color" (click)="simpan()">Tambah</button>
                 </ion-item>
             </ion-col>
         </ion-row>
