@@ -12,6 +12,8 @@ export class AddUserComponent {
   public nama: string;
   public nisn: string;
   public tgl_lahir: string;
+
+  isUpdate: boolean = false;  
   
   constructor(
     public render: Renderer,
@@ -22,7 +24,8 @@ export class AddUserComponent {
   ) {
     this.render.setElementClass(viewCtrl.pageRef().nativeElement, 'add-user-popup',true);   
     if(params.get('nisn')){
-      console.log(params.get('nisn'));
+      this.isUpdate = true;
+      // console.log(params.get('nisn'));
       this.api.getSiswa(params.get('nisn')).subscribe(
         data=>{
           this.nisn = data.nisn;

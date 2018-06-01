@@ -11,7 +11,7 @@
             <ion-col>
                 <ion-item class="input" no-lines>
                     <ion-label stacked class="label" >Nisn</ion-label>
-                    <ion-input type="text" text-center [(ngModel)]="nisn" [class]="color"></ion-input>
+                    <ion-input type="text" text-center [(ngModel)]="nisn" [disabled]="isUpdate" [class]="color"></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>

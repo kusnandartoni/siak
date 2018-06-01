@@ -73,7 +73,7 @@ export class ApiProvider {
   }
   updateSiswa(data){
     let headers = this._getHeaders()
-    return this.http.post(`${this.apiUrl}/siswa/update.php`,data,{headers:headers})
+    return this.http.post(`${this.apiUrl}/siswa/half_update.php`,data,{headers:headers})
       .map(res=>res.json());
   }
   removeSiswa(nisn:string){
