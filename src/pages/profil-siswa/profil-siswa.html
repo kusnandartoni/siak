@@ -20,76 +20,59 @@
             <h4 class="title">Data Siswa</h4>
           </ion-card-header>
           <ion-card-content>
-            <form action="#">
-              <ion-grid>
-                <ion-row>
-                  <ion-col col-md-6>
-                    <ion-item>
-                      <ion-label stacked>Nomor Induk Siswa (NIS)</ion-label>
-                      <ion-input ></ion-input>
-                    </ion-item>
-                  </ion-col>
-                  <ion-col col-md-6>
-                    <ion-item>
-                      <ion-label stacked>Nomor Induk Siswa Nasional (NISN)</ion-label>
-                      <ion-input ></ion-input>
-                    </ion-item>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col col-md-6>
-                    <ion-item>
-                      <ion-label stacked>Nama Lengkap</ion-label>
-                      <ion-input ></ion-input>
-                    </ion-item>
-                  </ion-col>
-                  <ion-col col-md-6>
-                    <ion-item>
-                      <ion-label stacked>Panggilan</ion-label>
-                      <ion-input ></ion-input>
-                    </ion-item>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col col-md-4>
-                    <ion-item>
-                      <ion-label stacked>Tempat Lahir</ion-label>
-                      <ion-input ></ion-input>
-                    </ion-item>
-                  </ion-col>
-                  <ion-col col-md-4>
-                    <ion-item>
-                      <ion-label stacked>Tanggal Lahir</ion-label>
-                      <ion-input ></ion-input>
-                    </ion-item>
-                  </ion-col>
-                  <ion-col col-md-4>
-                    <ion-item>
-                      <ion-label stacked>Agama</ion-label>
-                      <ion-input ></ion-input>
-                    </ion-item>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col>
-                    <ion-item>
-                      <ion-label stacked>Pendidikan Sebelumnya</ion-label>
-                      <ion-input ></ion-input>
-                    </ion-item>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col>
-                    <ion-item>
-                      <ion-label stacked>Alamat Siswa</ion-label>
-                      <ion-textarea ></ion-textarea>
-                    </ion-item>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-            </form>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-item class="input" no-lines>
+                      <ion-label stacked class="label">Nisn</ion-label>
+                      <ion-input type="text" [(ngModel)]="nisn" [class]="color" disabled></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item class="input" no-lines>
+                      <ion-label stacked class="label">Nama</ion-label>
+                      <ion-input type="text" [(ngModel)]="nama" [class]="color" disabled></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item class="input" no-lines>
+                      <ion-label stacked class="label">Tanggal Lahir</ion-label>
+                      <ion-input type="text" [(ngModel)]="tgl_lahir" [class]="color" disabled></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item class="input" no-lines>
+                      <ion-label stacked class="label">Tempat Lahir</ion-label>
+                      <ion-input type="text" [(ngModel)]="tpt_lahir" [class]="color"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item class="input" no-lines>
+                      <ion-label stacked class="label">Agama</ion-label>
+                      <ion-input type="text" [(ngModel)]="agama" [class]="color"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item class="input" no-lines>
+                      <ion-label stacked class="label">Alamat</ion-label>
+                      <ion-textarea [(ngModel)]="alamat" [class]="color"></ion-textarea>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
           </ion-card-content>
         </ion-card>
+
         <ion-card>
           <ion-card-header>
             <h4 class="title">Data Orang Tua Siswa</h4>
@@ -100,13 +83,13 @@
                 <ion-col col-md-6>
                   <ion-item>
                     <ion-label stacked>Nama Ayah</ion-label>
-                    <ion-input ></ion-input>
+                    <ion-input type="text" [(ngModel)]="nama_ayah" [class]="color"></ion-input>
                   </ion-item>
                 </ion-col>
                 <ion-col col-md-6>
                   <ion-item>
                     <ion-label stacked>Pekerjaan Ayah</ion-label>
-                    <ion-input ></ion-input>
+                    <ion-input type="text" [(ngModel)]="pekerjaan_ayah" [class]="color"></ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -114,13 +97,13 @@
                 <ion-col col-md-6>
                   <ion-item>
                     <ion-label stacked>Nama Ibu</ion-label>
-                    <ion-input ></ion-input>
+                    <ion-input type="text" [(ngModel)]="nama_ibu" [class]="color"></ion-input>
                   </ion-item>
                 </ion-col>
                 <ion-col col-md-6>
                   <ion-item>
                     <ion-label stacked>Pekerjaan Ibu</ion-label>
-                    <ion-input ></ion-input>
+                    <ion-input type="text" [(ngModel)]="pekerjaan_ibu" [class]="color"></ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -128,12 +111,17 @@
                 <ion-col>
                   <ion-item>
                     <ion-label stacked>Alamat Orang Tua Siswa</ion-label>
-                    <ion-textarea ></ion-textarea>
+                    <ion-textarea [(ngModel)]="alamat_ortu" [class]="color"></ion-textarea>
                   </ion-item>
                 </ion-col>
               </ion-row>
             </ion-grid>
           </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <button ion-button item-right round (click)="simpan()">Simpan</button>
+          </ion-item>
         </ion-card>
       </ion-col>
     </ion-row>
