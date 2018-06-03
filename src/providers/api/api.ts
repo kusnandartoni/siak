@@ -66,7 +66,7 @@ export class ApiProvider {
   }
 
   addSiswa(data){
-    console.log('api',data);
+    // console.log('api',data);
     let headers = this._getHeaders()
     return this.http.post(`${this.apiUrl}/siswa/create.php`,data,{headers:headers})
       .map(res=>res.json());
@@ -86,4 +86,16 @@ export class ApiProvider {
       .map(res=>res.json());
   }
 
+  addSiswaKelas(data){
+    // console.log('api',data);
+    let headers = this._getHeaders()
+    return this.http.post(`${this.apiUrl}/kelas/create.php`,data,{headers:headers})
+      .map(res=>res.json());
+  }
+  getSiswaKelas(data){
+    // console.log('api',data);
+    let headers = this._getHeaders()
+    return this.http.post(`${this.apiUrl}/kelas/read_kelas.php`,data,{headers:headers})
+      .map(res=>res.json().records);
+  }
 }

@@ -27,6 +27,7 @@ export class MyApp {
       { title: 'Raport', component: 'RaportPage', icon: 'analytics'},
       { title: 'Input Nilai', component: 'InputNilaiPage', icon: 'analytics'},
       { title: 'Master User', component: 'CreateUserPage', icon: 'analytics'},
+      { title: 'Master Kelas', component: 'KelasPage', icon: 'analytics'},
       { title: 'Master Artikel', component: 'CreateArtikelPage', icon: 'analytics'},
       { title: 'Edit Sekolah', component: 'EditSekolahPage', icon: 'analytics'},
     ];

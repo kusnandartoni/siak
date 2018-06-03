@@ -23,7 +23,8 @@ export class ProfilSiswaPage {
   pekerjaan_ayah : string;
   pekerjaan_ibu : string;
   alamat_ortu : string;
-
+  hobi: string;
+  
   constructor(
     public api: ApiProvider,
     public navCtrl: NavController, 
