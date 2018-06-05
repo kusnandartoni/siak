@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { AddSiswaComponent } from '../../components/add-siswa/add-siswa';
 
 /**
  * Generated class for the KelasPage page.
@@ -20,7 +21,8 @@ export class KelasPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public api: ApiProvider
+    public api: ApiProvider,
+    public mdlCtrl: ModalController
   ) {
   }
 
@@ -47,11 +49,21 @@ export class KelasPage {
   }
 
   addSiswa(){
-    this.api.addSiswaKelas(this.option()).subscribe(
-      res=>{
-        console.log(res);
+    let modal = this.mdlCtrl.create(AddSiswaComponent, {ta:'', kelas:''},{enableBackdropDismiss:false});
+    modal.present();
+    modal.onDidDismiss(
+      data=>{
+        if(data){
+          
+          // this.navCtrl.setRoot('ProfilSiswaPage');
+        }
       }
-    )
+    );
+    // this.api.addSiswaKelas(this.option()).subscribe(
+    //   res=>{
+    //     console.log(res);
+    //   }
+    // )
   }
 
   getSiswaInClass(){
@@ -62,5 +74,6 @@ export class KelasPage {
       }
     )
   }
+
 
 }

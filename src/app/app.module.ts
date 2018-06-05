@@ -12,13 +12,15 @@ import { AddArtikelComponent } from '../components/add-artikel/add-artikel';
 import { ToolsProvider } from '../providers/tools/tools';
 import { AddUserComponent } from '../components/add-user/add-user';
 import { ApiProvider } from '../providers/api/api';
+import { AddSiswaComponent } from '../components/add-siswa/add-siswa';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginComponent,
     AddArtikelComponent,
-    AddUserComponent
+    AddUserComponent,
+    AddSiswaComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { ApiProvider } from '../providers/api/api';
     MyApp,
     LoginComponent,
     AddArtikelComponent,
-    AddUserComponent
+    AddUserComponent,
+    AddSiswaComponent
     
   ],
   providers: [
