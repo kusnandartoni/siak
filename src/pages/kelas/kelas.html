@@ -26,9 +26,9 @@
               </ion-row>
               <ion-row>
                 <ion-col col-4>
-                    <ion-item class="pilihan" text-center>
-                      <ion-label text-left>Tahun Ajaran</ion-label>
-                      <ion-select>
+                    <ion-item class="pilihan" >
+                      <ion-label text-left>Th Ajaran</ion-label>
+                      <ion-select [(ngModel)]="thn" (ionChange)="check()">
                         <ion-option value="2013">2013/2014</ion-option>
                         <ion-option value="2014">2014/2015</ion-option>
                         <ion-option value="2015">2015/2016</ion-option>
@@ -39,9 +39,18 @@
                     </ion-item>
                 </ion-col>
                 <ion-col col-4>
-                  <ion-item class="pilihan" text-center>
+                  <ion-item class="pilihan" >
+                    <ion-label text-left>Semester</ion-label>
+                    <ion-select [(ngModel)]="smt" (ionChange)="check()">
+                      <ion-option value="1">Ganjil</ion-option>
+                      <ion-option value="2">Genap</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                  <ion-item class="pilihan" >
                     <ion-label text-left>Kelas</ion-label>
-                    <ion-select>
+                    <ion-select [(ngModel)]="kls" (ionChange)="check()">
                       <ion-option value="1a">I A</ion-option>
                       <ion-option value="1b">I B</ion-option>
                       <ion-option value="1c">I C</ion-option>
@@ -62,7 +71,7 @@
                       <ion-option value="6c">VI C</ion-option>
                     </ion-select>
                   </ion-item>
-              </ion-col>
+                </ion-col>
               </ion-row>
             </ion-grid>
           </ion-card-header>
@@ -72,7 +81,7 @@
                   <ion-col col-3>Nisn</ion-col>
                   <ion-col col-7>Nama</ion-col>
                   <ion-col col-2 text-right>
-                    <button (click)="addSiswa()" ion-button outline small icon-only>
+                    <button (click)="addSiswa()" [disabled]="!enableAdd" ion-button outline small icon-only>
                       <ion-icon name="add"></ion-icon>
                     </button>
                   </ion-col>

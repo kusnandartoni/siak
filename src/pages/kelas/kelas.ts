@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { AddSiswaComponent } from '../../components/add-siswa/add-siswa';
+import { ToolsProvider } from '../../providers/tools/tools';
 
 /**
  * Generated class for the KelasPage page.
@@ -16,35 +17,55 @@ import { AddSiswaComponent } from '../../components/add-siswa/add-siswa';
   templateUrl: 'kelas.html',
 })
 export class KelasPage {
-  siswaInClass:any;
+  siswaInClass:any;  
+  public namaSekolah: string;
+  public thn: string;
+  public smt: string;
+  public kls: string;
+
+  public enableAdd: boolean = false;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public api: ApiProvider,
-    public mdlCtrl: ModalController
+    public mdlCtrl: ModalController,
+    public tool: ToolsProvider
   ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad KelasPage');
-    this.getSiswaInClass();
+    this.getProfilSekolah();
   }
-
+  getProfilSekolah(){
+    this.api.getDataSekolah().subscribe(
+      data=>{
+        this.namaSekolah = data.nama;
+      }
+    )
+  }
+  getPeriode(){
+    if(this.smt==='1'){
+      return '2';
+    }else if(this.smt==='2'){
+      return '1';
+    }
+  }
   optGet(){
     return{
-      kd_kelas:'1a',
-      tahun_ajaran:'2017/2018'
+      kd_kelas:this.kls,
+      tahun_ajaran:this.thn+'/'+(parseInt(this.thn)+1),
+      semester:this.smt
     }
   }
 
-  option(){
+  option(nisn:string){
     return{
-      periode:'20171',
-      nisn:'6',
-      kd_kelas:'1a',
-      tahun_ajaran:'2017/2018',
-      semester:'2'
+      periode:this.thn+''+this.getPeriode(),
+      nisn:nisn,
+      kd_kelas:this.kls,
+      tahun_ajaran:this.thn+'/'+(parseInt(this.thn)+1),
+      semester:this.smt
     }
   }
 
@@ -54,16 +75,28 @@ export class KelasPage {
     modal.onDidDismiss(
       data=>{
         if(data){
-          
-          // this.navCtrl.setRoot('ProfilSiswaPage');
+          // console.log(data);
+
+          // checkSiswaExist
+
+          // if exist ask for update
+          // if not do insert
+
+          this.api.addSiswaKelas(this.option(data)).subscribe(
+            res=>{
+              console.log(res);
+              if(res.errMessage===null){
+                this.tool.showAlert("info",`Berhasil menambahkan nisn(${data})`);
+              }else if(res.errMessage===1062){
+                this.tool.showAlert("Error",`nisn(${data}) sudah ada di kelas`);
+              }
+              this.getSiswaInClass();
+            }
+          )
         }
       }
     );
-    // this.api.addSiswaKelas(this.option()).subscribe(
-    //   res=>{
-    //     console.log(res);
-    //   }
-    // )
+    
   }
 
   getSiswaInClass(){
@@ -72,8 +105,14 @@ export class KelasPage {
         // console.log(data);
         this.siswaInClass = data;
       }
-    )
+    );
   }
 
+  check(){
+    if(this.thn && this.smt && this.kls){
+      this.enableAdd = true;
+      this.getSiswaInClass();
+    }
+  }
 
 }

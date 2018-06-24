@@ -7,13 +7,13 @@
 <ion-content no-bounce class="no-scroll">
     <ion-item class="input" no-lines>
         <ion-label floating class="label" >Nisn</ion-label>
-        <ion-input type="text" [class]="color"></ion-input>
+        <ion-input type="text" [(ngModel)]="nisn" [class]="color"></ion-input>
     </ion-item>
     <ion-item  no-lines>
         
     </ion-item>
     <ion-item no-lines>
-        <a ion-button round small float-left outline color="secondary" (click)="dismiss()">Batal</a>
-        <button ion-button round small float-right [color]="color">Masuk</button>
+        <a ion-button round small float-left outline color="secondary" (click)="dismiss('')">Batal</a>
+        <button ion-button round small float-right [color]="color" (click)="add()">Tambah</button>
     </ion-item>
 </ion-content>
