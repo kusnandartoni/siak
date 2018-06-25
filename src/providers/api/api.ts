@@ -102,5 +102,14 @@ export class ApiProvider {
     return this.http.get(`${this.apiUrl}/kelas/read_siswa.php?nisn=${nisn}&periode=${periode}`)
       .map(res=>res.json());
   }
+  removeSiswaInClass(periode:string,nisn:string){
+    return this.http.get(`${this.apiUrl}/kelas/delete.php?nisn=${nisn}&periode=${periode}`)
+    .map(res=>res.json());
+  }
+  updateSiswaInClass(data){
+    let headers = this._getHeaders()
+    return this.http.post(`${this.apiUrl}/kelas/update.php`,data,{headers:headers})
+      .map(res=>res.json());
+  }
   
 }

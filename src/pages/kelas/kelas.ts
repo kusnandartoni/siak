@@ -51,6 +51,7 @@ export class KelasPage {
     }
   }
 
+
   option(nisn:string){
     return{
       periode:this.thn+''+this.getPeriode(),
@@ -72,11 +73,19 @@ export class KelasPage {
               if(ret.result==="0"){
                 this.saveSiswa(data);
               }else if(ret.result==="1"){
-                let conf = this.tool.showConfirm(`data siswa sudah terdaftar di kelas(${ret.kelas}) nisn(${ret.nisn}) nama(${ret.nama})`,'Confirm','Batal', 'Update')
+                let conf = this.tool.showConfirm(
+                  `data siswa sudah terdaftar<br>
+                  nisn(${ret.nisn}) nama(${ret.nama}) kelas(${ret.kelas})<br>
+                  <hr><br>
+                  update ke kelas (${this.kls})?`,
+                  'Konfirmasi',
+                  'Batal',
+                  'Update');
                 conf.present();
                 conf.onDidDismiss((res)=>{
                   if(res){
                     console.log('ubah');
+                    this.updateSiswa(ret.nisn, this.kls, this.thn+''+this.getPeriode())
                   }else{
                     console.log('batal');
                   }
@@ -121,7 +130,25 @@ export class KelasPage {
   }
 
   removeSiswa(nisn){
-    console.log(nisn);
+    // console.log(nisn);
+    this.api.removeSiswaInClass(this.thn+''+this.getPeriode(), nisn).subscribe(res=>{
+      this.tool.showAlert("sukses",`data nisn(${nisn}) berhasil di delete dari kelas(${this.kls})`);
+      this.getSiswaInClass();
+    });
   }
 
+  updateSiswa(nisn:string, kelas:string, periode:string){
+    let data = {
+      nisn:nisn,
+      periode:periode,
+      kd_kelas:kelas
+    }
+    console.log(data);
+    this.api.updateSiswaInClass(data).subscribe(
+      res=>{
+        this.tool.showAlert("sukses",`data nisn(${nisn}) dipindahkan ke kelas(${kelas})`);
+        this.getSiswaInClass();
+      }
+    )
+  }
 }
