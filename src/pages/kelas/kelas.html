@@ -90,7 +90,7 @@
                   <ion-col col-3>{{siswa.nisn}}</ion-col>
                   <ion-col col-7>{{siswa.nama}}</ion-col>
                   <ion-col col-2 text-right>
-                    <button ion-button outline small color="danger" icon-only>
+                    <button ion-button outline small color="danger" icon-only (click)="removeSiswa(siswa.nisn)">
                       <ion-icon name="trash"></ion-icon>
                     </button>
                   </ion-col>

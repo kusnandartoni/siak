@@ -33,7 +33,7 @@ export class AddSiswaComponent {
     this.api.getSiswa(this.nisn).subscribe(data=>{
       // console.log(data);
       if(data.result==="0"){
-        this.tool.showAlert("Warning", `siswa dengan nisn(${this.nisn}) tidak ada`)
+        this.tool.showAlert("Warning", `tidak ada siswa dengan nisn(${this.nisn}) `)
       }else if(data.result==="1"){
         this.dismiss(this.nisn);
       }

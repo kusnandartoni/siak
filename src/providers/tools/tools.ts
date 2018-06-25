@@ -21,4 +21,26 @@ export class ToolsProvider {
     alert.present();
   }
 
+  showConfirm(msg: string, title: string, cc: string, ok:string): any{
+    let alert = this.alrt.create({
+      title: title,
+      message: msg,
+      buttons: [{
+        text: cc,
+        role: 'cancel',
+        handler: () => {
+          alert.dismiss(false);
+          return false;
+        }
+      },{
+        text: ok,
+        handler: ()=>{
+          alert.dismiss(true);
+          return false;          
+        }
+      }]
+    });
+    return alert;
+  }
+
 }

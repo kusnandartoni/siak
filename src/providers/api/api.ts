@@ -98,4 +98,9 @@ export class ApiProvider {
     return this.http.post(`${this.apiUrl}/kelas/read_kelas.php`,data,{headers:headers})
       .map(res=>res.json().records);
   }
+  getSiswaInKelas(periode:string,nisn:string){
+    return this.http.get(`${this.apiUrl}/kelas/read_siswa.php?nisn=${nisn}&periode=${periode}`)
+      .map(res=>res.json());
+  }
+  
 }

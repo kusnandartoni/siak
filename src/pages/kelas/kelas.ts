@@ -3,14 +3,6 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { ApiProvider } from '../../providers/api/api';
 import { AddSiswaComponent } from '../../components/add-siswa/add-siswa';
 import { ToolsProvider } from '../../providers/tools/tools';
-
-/**
- * Generated class for the KelasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-kelas',
@@ -75,28 +67,41 @@ export class KelasPage {
     modal.onDidDismiss(
       data=>{
         if(data){
-          // console.log(data);
-
-          // checkSiswaExist
-
-          // if exist ask for update
-          // if not do insert
-
-          this.api.addSiswaKelas(this.option(data)).subscribe(
-            res=>{
-              console.log(res);
-              if(res.errMessage===null){
-                this.tool.showAlert("info",`Berhasil menambahkan nisn(${data})`);
-              }else if(res.errMessage===1062){
-                this.tool.showAlert("Error",`nisn(${data}) sudah ada di kelas`);
+          this.api.getSiswaInKelas(this.thn+''+this.getPeriode(), data).subscribe(
+            ret=>{
+              if(ret.result==="0"){
+                this.saveSiswa(data);
+              }else if(ret.result==="1"){
+                let conf = this.tool.showConfirm(`data siswa sudah terdaftar di kelas(${ret.kelas}) nisn(${ret.nisn}) nama(${ret.nama})`,'Confirm','Batal', 'Update')
+                conf.present();
+                conf.onDidDismiss((res)=>{
+                  if(res){
+                    console.log('ubah');
+                  }else{
+                    console.log('batal');
+                  }
+                });
               }
-              this.getSiswaInClass();
             }
-          )
+          );
         }
       }
     );
-    
+  }
+
+  saveSiswa(data){
+    // console.log('save');
+    this.api.addSiswaKelas(this.option(data)).subscribe(
+      res=>{
+        console.log(res);
+        if(res.errMessage===null){
+          this.tool.showAlert("info",`Berhasil menambahkan nisn(${data})`);
+        }else {
+          console.log(res.errMessage);
+        }
+        this.getSiswaInClass();
+      }
+    );
   }
 
   getSiswaInClass(){
@@ -113,6 +118,10 @@ export class KelasPage {
       this.enableAdd = true;
       this.getSiswaInClass();
     }
+  }
+
+  removeSiswa(nisn){
+    console.log(nisn);
   }
 
 }
