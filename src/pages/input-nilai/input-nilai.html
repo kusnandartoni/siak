@@ -27,7 +27,7 @@
                 <ion-row>
                   <ion-col col-4>
                     <ion-item class="pilihan" text-center>
-                      <ion-label text-left>Tahun Ajaran</ion-label>
+                      <ion-label text-left>Periode</ion-label>
                       <ion-select>
                         <ion-option value="f">Female</ion-option>
                       </ion-select>
@@ -36,16 +36,33 @@
                   <ion-col col-4>
                     <ion-item class="pilihan" text-center>
                       <ion-label text-left>Kelas</ion-label>
-                      <ion-select>
-                        <ion-option value="f">Female</ion-option>
+                      <ion-select [(ngModel)]="kls" (ionChange)="check()">
+                        <ion-option value="1a">I A</ion-option>
+                        <ion-option value="1b">I B</ion-option>
+                        <ion-option value="1c">I C</ion-option>
+                        <ion-option value="2a">II A</ion-option>
+                        <ion-option value="2b">II B</ion-option>
+                        <ion-option value="2c">II C</ion-option>
+                        <ion-option value="3a">III A</ion-option>
+                        <ion-option value="3b">III B</ion-option>
+                        <ion-option value="3c">III C</ion-option>
+                        <ion-option value="4a">IV A</ion-option>
+                        <ion-option value="4b">IV B</ion-option>
+                        <ion-option value="4c">IV C</ion-option>
+                        <ion-option value="5a">V A</ion-option>
+                        <ion-option value="5b">V B</ion-option>
+                        <ion-option value="5c">V C</ion-option>
+                        <ion-option value="6a">VI A</ion-option>
+                        <ion-option value="6b">VI B</ion-option>
+                        <ion-option value="6c">VI C</ion-option>
                       </ion-select>
                     </ion-item>
                   </ion-col>
                   <ion-col col-4>
                     <ion-item class="pilihan" text-center>
                       <ion-label text-left>Mata Pelajaran</ion-label>
-                      <ion-select>
-                        <ion-option value="f">Female</ion-option>
+                      <ion-select [(ngModel)]="plj" (ionChange)="check()">
+                        <ion-option *ngFor="let pel of pelajaran" value="{{pel.kd_pelajaran}}">{{pel.nama_pelajaran}}</ion-option>
                       </ion-select>
                     </ion-item>
                   </ion-col>

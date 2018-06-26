@@ -113,5 +113,10 @@ export class ApiProvider {
     return this.http.post(`${this.apiUrl}/kelas/update.php`,data,{headers:headers})
       .map(res=>res.json());
   }
+
+  getPelajaran(){
+    return this.http.get(`${this.apiUrl}/pelajaran/read.php`)
+      .map(res=>res.json().records);
+  }
   
 }

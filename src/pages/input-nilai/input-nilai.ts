@@ -10,6 +10,10 @@ import { ApiProvider } from '../../providers/api/api';
 export class InputNilaiPage {
 
   public namaSekolah: string;
+  public pelajaran:any = [];
+
+  public plj:string;
+  public kls:string;
 
   constructor(
     public api: ApiProvider,
@@ -21,6 +25,14 @@ export class InputNilaiPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad InputNilaiPage');
     this.getProfilSekolah();
+    this.api.getPelajaran().subscribe(data=>{
+      console.log(data);
+      this.pelajaran = data;
+    })
+  }
+
+  check(){
+    console.log(this.plj);
   }
 
   getProfilSekolah(){
