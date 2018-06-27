@@ -9,4 +9,11 @@ page-input-nilai {
         background-color: aquamarine;
         border-radius: 25px;
     }
+
+    ion-input{
+        .text-input-md{
+            margin:0;
+            padding-left:-10px;
+        }
+    }
 }

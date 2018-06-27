@@ -25,15 +25,20 @@
                   </ion-col>
                 </ion-row>
                 <ion-row>
-                  <ion-col col-4>
+                  <ion-col col-6>
                     <ion-item class="pilihan" text-center>
-                      <ion-label text-left>Periode</ion-label>
-                      <ion-select>
-                        <ion-option value="f">Female</ion-option>
+                      <ion-label text-left>Th Ajaran</ion-label>
+                      <ion-select [(ngModel)]="thn" (ionChange)="check()">
+                        <ion-option value="2013">2013/2014</ion-option>
+                        <ion-option value="2014">2014/2015</ion-option>
+                        <ion-option value="2015">2015/2016</ion-option>
+                        <ion-option value="2016">2016/2017</ion-option>
+                        <ion-option value="2017">2017/2018</ion-option>
+                        <ion-option value="2018">2018/2019</ion-option>
                       </ion-select>
                     </ion-item>
                   </ion-col>
-                  <ion-col col-4>
+                  <ion-col col-6>
                     <ion-item class="pilihan" text-center>
                       <ion-label text-left>Kelas</ion-label>
                       <ion-select [(ngModel)]="kls" (ionChange)="check()">
@@ -58,7 +63,18 @@
                       </ion-select>
                     </ion-item>
                   </ion-col>
-                  <ion-col col-4>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item class="pilihan" text-center>
+                      <ion-label text-left>Semester</ion-label>
+                      <ion-select [(ngModel)]="smt" (ionChange)="check()">
+                        <ion-option value="1">Ganjil</ion-option>
+                        <ion-option value="2">Genap</ion-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
                     <ion-item class="pilihan" text-center>
                       <ion-label text-left>Mata Pelajaran</ion-label>
                       <ion-select [(ngModel)]="plj" (ionChange)="check()">
@@ -72,16 +88,20 @@
             <ion-card-content>
                 <ion-grid>
                   <ion-row>
-                    <ion-col col-1>No</ion-col>
-                    <ion-col col-7>Mata Pelajaran</ion-col>
+                    <ion-col col-2>Nisn</ion-col>
+                    <ion-col col-6>Nama Siswa</ion-col>
                     <ion-col col-2>KKM</ion-col>
                     <ion-col col-2>Nilai</ion-col>
                   </ion-row>
-                  <ion-row>
-                    <ion-col></ion-col>
-                    <ion-col></ion-col>
-                    <ion-col></ion-col>
-                    <ion-col></ion-col>
+                  <ion-row *ngFor="let siswa of siswaInClass">
+                    <ion-col col-2>{{siswa.nisn}}</ion-col>
+                    <ion-col col-6>{{siswa.nama}}</ion-col>
+                    <ion-col col-2>
+                      <ion-input class="in-kecil"></ion-input>
+                    </ion-col>
+                    <ion-col col-2>
+                      <ion-input class="in-kecil"></ion-input>
+                    </ion-col>
                   </ion-row>
                 </ion-grid>
             </ion-card-content>

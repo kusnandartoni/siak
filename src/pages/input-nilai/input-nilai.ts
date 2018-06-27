@@ -8,12 +8,17 @@ import { ApiProvider } from '../../providers/api/api';
   templateUrl: 'input-nilai.html',
 })
 export class InputNilaiPage {
+  siswaInClass:any;  
 
   public namaSekolah: string;
   public pelajaran:any = [];
 
   public plj:string;
   public kls:string;
+  public smt:string;
+  public thn:string;
+
+  enableAdd:boolean = false;
 
   constructor(
     public api: ApiProvider,
@@ -32,7 +37,24 @@ export class InputNilaiPage {
   }
 
   check(){
-    console.log(this.plj);
+    if(this.thn && this.smt && this.kls){
+      this.enableAdd = true;
+      this.getSiswaInClass();
+    }
+  }
+
+  getSiswaInClass(){
+    let data = {
+      kd_kelas:this.kls,
+      tahun_ajaran:this.thn+'/'+(parseInt(this.thn)+1),
+      semester:this.smt
+    }
+    this.api.getSiswaKelas(data).subscribe(
+      data=>{
+        // console.log(data);
+        this.siswaInClass = data;
+      }
+    );
   }
 
   getProfilSekolah(){
