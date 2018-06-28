@@ -95,7 +95,7 @@
                   </ion-row>
                   <ion-row *ngFor="let siswa of siswaInClass; let i = index;">
                     <ion-col col-2>{{siswa.nisn}}
-                      <ion-input hidden [(ngModel)]="dataNilai[i].nisn" [value]="siswa.nisn"></ion-input>
+                      <ion-input [(ngModel)]="dataNilai[i].nisn" [value]="siswa.nisn"></ion-input>
                     </ion-col>
                     <ion-col col-6>{{siswa.nama}}</ion-col>
                     <ion-col col-2>

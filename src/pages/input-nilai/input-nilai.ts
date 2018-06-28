@@ -10,7 +10,7 @@ import { ApiProvider } from '../../providers/api/api';
 export class InputNilaiPage {
   siswaInClass:any;  
 
-  dataNilai:any;
+  dataNilai=[];
 
   public namaSekolah: string;
   public pelajaran:any = [];
@@ -39,6 +39,7 @@ export class InputNilaiPage {
   }
 
   check(){
+    this.dataNilai=[]
     if(this.thn && this.smt && this.kls){
       this.enableAdd = true;
       this.getSiswaInClass();
@@ -54,7 +55,19 @@ export class InputNilaiPage {
     this.api.getSiswaKelas(data).subscribe(
       data=>{
         // console.log(data);
-        this.siswaInClass = data;
+        data.forEach(el => {
+          this.dataNilai.push({
+            nama:el.nama,
+            nisn:el.nisn,
+            kkm:'',
+            nilai:''
+          });
+        });
+        // this.siswaInClass = data;
+      },err=>{},
+      ()=>{
+        console.log(this.dataNilai);
+        this.siswaInClass = this.dataNilai;
       }
     );
   }
