@@ -93,8 +93,10 @@
                     <ion-col col-2>KKM</ion-col>
                     <ion-col col-2>Nilai</ion-col>
                   </ion-row>
-                  <ion-row *ngFor="let siswa of siswaInClass">
-                    <ion-col col-2>{{siswa.nisn}}</ion-col>
+                  <ion-row *ngFor="let siswa of siswaInClass; let i = index;">
+                    <ion-col col-2>{{siswa.nisn}}
+                      <ion-input hidden [(ngModel)]="dataNilai[i].nisn" [value]="siswa.nisn"></ion-input>
+                    </ion-col>
                     <ion-col col-6>{{siswa.nama}}</ion-col>
                     <ion-col col-2>
                       <ion-input class="in-kecil"></ion-input>
@@ -104,6 +106,7 @@
                     </ion-col>
                   </ion-row>
                 </ion-grid>
+                <button ion-button float-right (click)="simpan()">check</button>
             </ion-card-content>
           </ion-card>
         </ion-col>

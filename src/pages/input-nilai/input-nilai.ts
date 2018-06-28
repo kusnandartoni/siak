@@ -10,6 +10,8 @@ import { ApiProvider } from '../../providers/api/api';
 export class InputNilaiPage {
   siswaInClass:any;  
 
+  dataNilai:any;
+
   public namaSekolah: string;
   public pelajaran:any = [];
 
@@ -31,7 +33,7 @@ export class InputNilaiPage {
     console.log('ionViewDidLoad InputNilaiPage');
     this.getProfilSekolah();
     this.api.getPelajaran().subscribe(data=>{
-      console.log(data);
+      // console.log(data);
       this.pelajaran = data;
     })
   }
@@ -63,6 +65,10 @@ export class InputNilaiPage {
         this.namaSekolah = data.nama;
       }
     )
+  }
+
+  simpan(){
+    console.log(this.dataNilai);
   }
 
 }
