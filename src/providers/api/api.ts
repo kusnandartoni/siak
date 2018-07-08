@@ -109,7 +109,7 @@ export class ApiProvider {
 
   updateSiswaInClass(data){
     let headers = this._getHeaders()
-    console.log(data);
+    // console.log(data);
     return this.http.post(`${this.apiUrl}/kelas/update.php`,data,{headers:headers})
       .map(res=>res.json());
   }
@@ -119,4 +119,11 @@ export class ApiProvider {
       .map(res=>res.json().records);
   }
   
+  getNilaiKelasSiswa(data){
+    let headers = this._getHeaders()
+    // console.log(data);
+    return this.http.post(`${this.apiUrl}/nilai/read.php`,data,{headers:headers})
+      .map(res=>res.json().records);
+  }
+
 }

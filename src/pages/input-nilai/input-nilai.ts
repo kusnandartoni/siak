@@ -32,6 +32,7 @@ export class InputNilaiPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad InputNilaiPage');
     this.getProfilSekolah();
+    this.getNilaiKelasSiswa();
     this.api.getPelajaran().subscribe(data=>{
       // console.log(data);
       this.pelajaran = data;
@@ -46,12 +47,28 @@ export class InputNilaiPage {
     }
   }
 
+  getNilaiKelasSiswa(){
+    let data = {
+      tahun_ajaran:'2013/2014',
+      kd_kelas:'1a',
+      semester:'1',
+      periode:'20132',
+      kd_pelajaran:'MTK'
+    };
+    this.dataNilai = [];
+    this.api.getNilaiKelasSiswa(data).subscribe(res=>{
+      console.log(res);
+      this.dataNilai = res;
+    })
+  }
+
   getSiswaInClass(){
     let data = {
       kd_kelas:this.kls,
       tahun_ajaran:this.thn+'/'+(parseInt(this.thn)+1),
       semester:this.smt
     }
+    this.dataNilai = [];
     this.api.getSiswaKelas(data).subscribe(
       data=>{
         // console.log(data);

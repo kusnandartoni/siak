@@ -43,6 +43,7 @@ export class KelasPage {
       return '1';
     }
   }
+  
   optGet(){
     return{
       kd_kelas:this.kls,
