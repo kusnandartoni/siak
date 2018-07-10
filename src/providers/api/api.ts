@@ -8,7 +8,6 @@ export class ApiProvider {
   apiUrl: string = 'http://localhost/api'
 
   constructor(public http: Http) {
-    // console.log('Hello ApiProvider Provider');
   }
   
   _getHeaders() {
@@ -66,7 +65,6 @@ export class ApiProvider {
   }
 
   addSiswa(data){
-    // console.log('api',data);
     let headers = this._getHeaders()
     return this.http.post(`${this.apiUrl}/siswa/create.php`,data,{headers:headers})
       .map(res=>res.json());
@@ -87,13 +85,11 @@ export class ApiProvider {
   }
 
   addSiswaKelas(data){
-    // console.log('api',data);
     let headers = this._getHeaders()
     return this.http.post(`${this.apiUrl}/kelas/create.php`,data,{headers:headers})
       .map(res=>res.json());
   }
   getSiswaKelas(data){
-    // console.log('api',data);
     let headers = this._getHeaders()
     return this.http.post(`${this.apiUrl}/kelas/read_kelas.php`,data,{headers:headers})
       .map(res=>res.json().records);
@@ -109,7 +105,6 @@ export class ApiProvider {
 
   updateSiswaInClass(data){
     let headers = this._getHeaders()
-    // console.log(data);
     return this.http.post(`${this.apiUrl}/kelas/update.php`,data,{headers:headers})
       .map(res=>res.json());
   }
@@ -121,9 +116,14 @@ export class ApiProvider {
   
   getNilaiKelasSiswa(data){
     let headers = this._getHeaders()
-    // console.log(data);
     return this.http.post(`${this.apiUrl}/nilai/read.php`,data,{headers:headers})
       .map(res=>res.json().records);
+  }
+
+  saveNilai(data){
+    let headers = this._getHeaders()
+    return this.http.post(`${this.apiUrl}/nilai/save.php`,data,{headers:headers})
+      .map(res=>res.json());
   }
 
 }

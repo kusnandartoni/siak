@@ -32,61 +32,40 @@ export class InputNilaiPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad InputNilaiPage');
     this.getProfilSekolah();
-    this.getNilaiKelasSiswa();
     this.api.getPelajaran().subscribe(data=>{
-      // console.log(data);
       this.pelajaran = data;
     })
   }
 
+  getPeriode(){
+    if(this.smt==='1'){
+      return '2';
+    }else if(this.smt==='2'){
+      return '1';
+    }
+  }
+
   check(){
     this.dataNilai=[]
-    if(this.thn && this.smt && this.kls){
+    if(this.thn && this.smt && this.kls && this.plj){
       this.enableAdd = true;
-      this.getSiswaInClass();
+      this.getNilaiKelasSiswa();
     }
   }
 
   getNilaiKelasSiswa(){
     let data = {
-      tahun_ajaran:'2013/2014',
-      kd_kelas:'1a',
-      semester:'1',
-      periode:'20132',
-      kd_pelajaran:'MTK'
+      tahun_ajaran: this.thn+'/'+(parseInt(this.thn)+1),
+      kd_kelas: this.kls,
+      semester: this.smt,
+      periode: this.thn+''+this.getPeriode(),
+      kd_pelajaran: this.plj
     };
     this.dataNilai = [];
     this.api.getNilaiKelasSiswa(data).subscribe(res=>{
       console.log(res);
       this.dataNilai = res;
     })
-  }
-
-  getSiswaInClass(){
-    let data = {
-      kd_kelas:this.kls,
-      tahun_ajaran:this.thn+'/'+(parseInt(this.thn)+1),
-      semester:this.smt
-    }
-    this.dataNilai = [];
-    this.api.getSiswaKelas(data).subscribe(
-      data=>{
-        // console.log(data);
-        data.forEach(el => {
-          this.dataNilai.push({
-            nama:el.nama,
-            nisn:el.nisn,
-            kkm:'',
-            nilai:''
-          });
-        });
-        // this.siswaInClass = data;
-      },err=>{},
-      ()=>{
-        console.log(this.dataNilai);
-        this.siswaInClass = this.dataNilai;
-      }
-    );
   }
 
   getProfilSekolah(){
@@ -98,7 +77,18 @@ export class InputNilaiPage {
   }
 
   simpan(){
-    console.log(this.dataNilai);
+    this.dataNilai.forEach((siswa) => {
+      let data = {
+        periode : this.thn+''+this.getPeriode(),
+        nisn : siswa.nisn,
+        kd_pelajaran : this.plj,
+        kkm : siswa.kkm,
+        nilai : siswa.nilai
+      };
+      this.api.saveNilai(data).subscribe(res=>{
+        console.log(res);
+      });
+    });
   }
 
 }
