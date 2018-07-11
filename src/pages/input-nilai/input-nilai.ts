@@ -14,6 +14,7 @@ export class InputNilaiPage {
 
   public namaSekolah: string;
   public pelajaran:any = [];
+  public tahunAjar =[];
 
   public plj:string;
   public kls:string;
@@ -27,6 +28,21 @@ export class InputNilaiPage {
     public navCtrl: NavController, 
     public navParams: NavParams
   ) {
+    this.setTahunAjar();
+  }
+  
+  setTahunAjar(){
+    let d = new Date();
+    let th = parseInt(d.getFullYear().toString());
+    for (let i =0 ; i<6 ; i++){
+      let it = {
+        value : th,
+        name : th + '/' + (th+1)
+      }
+      this.tahunAjar.push(it);
+      th--;
+    }
+    console.log(this.tahunAjar);
   }
 
   ionViewDidLoad() {

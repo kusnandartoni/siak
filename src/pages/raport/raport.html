@@ -26,12 +26,21 @@
               </ion-row>
               <ion-row>
                 <ion-col col-4>
-                    <ion-item class="pilihan" text-center>
-                      <ion-label text-left>Tahun Ajaran</ion-label>
-                      <ion-select>
-                        <ion-option value="f">Female</ion-option>
-                      </ion-select>
-                    </ion-item>
+                  <ion-item class="pilihan" text-center>
+                    <ion-label text-left>Th Ajaran</ion-label>
+                    <ion-select [(ngModel)]="thn" (ionChange)="check()">
+                      <ion-option *ngFor="let th of tahunAjar" [value]="th.value">{{th.name}}</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                  <ion-item class="pilihan" text-center>
+                    <ion-label text-left>Semester</ion-label>
+                    <ion-select [(ngModel)]="smt" (ionChange)="check()">
+                      <ion-option value="1">Ganjil</ion-option>
+                      <ion-option value="2">Genap</ion-option>
+                    </ion-select>
+                  </ion-item>
                 </ion-col>
               </ion-row>
             </ion-grid>
@@ -44,11 +53,11 @@
                   <ion-col col-2>KKM</ion-col>
                   <ion-col col-2>Nilai</ion-col>
                 </ion-row>
-                <ion-row>
-                  <ion-col></ion-col>
-                  <ion-col></ion-col>
-                  <ion-col></ion-col>
-                  <ion-col></ion-col>
+                <ion-row *ngFor="let item of dataNilai; let i = index;">
+                  <ion-col col-1>{{i+1}}. </ion-col>
+                  <ion-col col-7>{{item.mapel}}</ion-col>
+                  <ion-col col-2>{{item.kkm}}</ion-col>
+                  <ion-col col-2>{{item.nilai}}</ion-col>
                 </ion-row>
               </ion-grid>
           </ion-card-content>

@@ -120,6 +120,12 @@ export class ApiProvider {
       .map(res=>res.json().records);
   }
 
+  getNilaiSiswa(data){
+    let headers = this._getHeaders()
+    return this.http.post(`${this.apiUrl}/nilai/read_one.php`,data,{headers:headers})
+      .map(res=>res.json().records);
+  }
+
   saveNilai(data){
     let headers = this._getHeaders()
     return this.http.post(`${this.apiUrl}/nilai/save.php`,data,{headers:headers})
