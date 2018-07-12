@@ -13,6 +13,7 @@ import { ToolsProvider } from '../providers/tools/tools';
 import { AddUserComponent } from '../components/add-user/add-user';
 import { ApiProvider } from '../providers/api/api';
 import { AddSiswaComponent } from '../components/add-siswa/add-siswa';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AddSiswaComponent } from '../components/add-siswa/add-siswa';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp,{mode: "md"}),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

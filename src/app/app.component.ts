@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events } from 'ionic-angular';
 // import { StatusBar } from '@ionic-native/status-bar';
 // import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -13,24 +13,37 @@ export class MyApp {
   rootPage: string = 'HomePage';
 
   pages: Array<{title: string, component: any, icon: string}>;
+  public nama:string;
+  public nisn:string;
+
 
   constructor(
     public platform: Platform, 
+    public ev: Events
     // public statusBar: StatusBar, 
     // public splashScreen: SplashScreen
   ) {
     this.initializeApp();
-
+    this.ev.subscribe('login',(data)=>{
+      this.nama = data.name;
+      this.nisn = data.nisn;
+      if (data.role==='Wali'){
+        this.pages = [
+          { title: 'Profile', component: 'ProfilSiswaPage', icon: 'contact' },
+          { title: 'Raport', component: 'RaportPage', icon: 'analytics'},
+        ];
+      }else if(data.role==='Admin'){
+        this.pages = [
+          { title: 'Input Nilai', component: 'InputNilaiPage', icon: 'analytics'},
+          { title: 'Master User', component: 'CreateUserPage', icon: 'analytics'},
+          { title: 'Master Kelas', component: 'KelasPage', icon: 'analytics'},
+          { title: 'Master Artikel', component: 'CreateArtikelPage', icon: 'analytics'},
+          { title: 'Edit Sekolah', component: 'EditSekolahPage', icon: 'analytics'},
+        ];
+      }
+    });
     // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Profile', component: 'ProfilSiswaPage', icon: 'contact' },
-      { title: 'Raport', component: 'RaportPage', icon: 'analytics'},
-      { title: 'Input Nilai', component: 'InputNilaiPage', icon: 'analytics'},
-      { title: 'Master User', component: 'CreateUserPage', icon: 'analytics'},
-      { title: 'Master Kelas', component: 'KelasPage', icon: 'analytics'},
-      { title: 'Master Artikel', component: 'CreateArtikelPage', icon: 'analytics'},
-      { title: 'Edit Sekolah', component: 'EditSekolahPage', icon: 'analytics'},
-    ];
+
     
   }
 

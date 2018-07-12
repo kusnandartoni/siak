@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController, ModalController, Platform, IonicPage } from 'ionic-angular';
+import { NavController, MenuController, ModalController, Platform, IonicPage, Events } from 'ionic-angular';
 import { LoginComponent } from '../../components/login/login';
 import { ApiProvider } from '../../providers/api/api';
-
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -27,7 +27,9 @@ export class HomePage {
     public navCtrl: NavController,
     public menu: MenuController,
     public mdlCtrl: ModalController,
-    public platform: Platform
+    public platform: Platform,
+    public stg: Storage,
+    public ev: Events
   ) {
     this.menu.enable(false);
     this.getProfilSekolah();
@@ -39,10 +41,32 @@ export class HomePage {
     let modal = this.mdlCtrl.create(LoginComponent, {role:role},{enableBackdropDismiss:false});
     modal.present();
     modal.onDidDismiss(
-      data=>{
-        if(data){
-          
-          this.navCtrl.setRoot('ProfilSiswaPage');
+      res=>{
+        if(res.role==='Wali'){
+          this.api.getSiswa(res.data.username).subscribe(ret=>{
+            if(res.data.password===ret.tgl_lahir.replace(/-/g, '')){
+              let x= {
+                role: res.role,
+                nisn:res.data.username,
+                name:ret.nama
+              };
+              this.ev.publish('login', x);
+              this.stg.set('nisn',res.data.username);
+              this.navCtrl.setRoot('ProfilSiswaPage');
+            }
+          });
+        }else if(res.role==='Admin'){
+          let data = this.api.getAdmin(res.data.username.toUpperCase());
+          if(res.data.password===data.pass){
+            let x= {
+              role: res.role,
+              nisn: data.nisn,
+              name: data.name
+            };
+            this.ev.publish('login', x);
+            this.stg.set('nisn',res.data.username);
+            this.navCtrl.setRoot('CreateArtikelPage');
+          }
         }
       }
     );

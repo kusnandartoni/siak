@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { ToolsProvider } from '../../providers/tools/tools';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -30,9 +31,12 @@ export class ProfilSiswaPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public tools: ToolsProvider,
-    public menu: MenuController
+    public menu: MenuController,
+    public stg: Storage
   ) {
-    this.getDataSiswa();
+    this.stg.get('nisn').then(a=>{
+      this.getDataSiswa(a);
+    })
   }
 
   option(){
@@ -56,8 +60,8 @@ export class ProfilSiswaPage {
     this.menu.enable(true);
   }
 
-  getDataSiswa(){
-    this.api.getSiswa('6').subscribe(
+  getDataSiswa(a){
+    this.api.getSiswa(a).subscribe(
       data=>{
         // console.log(data);
         this.nisn = data.nisn;

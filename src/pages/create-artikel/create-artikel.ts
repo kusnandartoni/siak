@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import 'rxjs/add/operator/map';
+import { IonicPage, NavController, NavParams, ModalController, MenuController } from 'ionic-angular';
+// import 'rxjs/add/operator/map';
 import { AddArtikelComponent } from '../../components/add-artikel/add-artikel';
 import { ToolsProvider } from '../../providers/tools/tools';
 import { ApiProvider } from '../../providers/api/api';
@@ -19,13 +19,15 @@ export class CreateArtikelPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public mdlCtrl: ModalController,
-    public tools: ToolsProvider
+    public tools: ToolsProvider,
+    public menu: MenuController
   ) {
   }
 
   ionViewDidLoad() {
     this.getProfilSekolah();
     this.getListArtikel();
+    this.menu.enable(true);
   }
 
   getProfilSekolah(){

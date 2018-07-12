@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -17,11 +18,18 @@ export class RaportPage {
   public smt:string;
   public thn:string;
 
+  public nisn:string;
+
   constructor(
     public api: ApiProvider,
-    public navCtrl: NavController, public navParams: NavParams
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public stg:Storage
   ) {
     this.setTahunAjar();
+    this.stg.get('nisn').then(a=>{
+      this.nisn = a;
+    });
   }
 
   ionViewDidLoad() {
@@ -60,7 +68,7 @@ export class RaportPage {
 
   getNilaiSiswa(){
     let data = {
-      nisn: '6',
+      nisn: this.nisn,
       periode: this.thn+''+this.getPeriode()
     };
     this.api.getNilaiSiswa(data).subscribe(res=>{

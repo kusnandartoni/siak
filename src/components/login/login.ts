@@ -22,15 +22,16 @@ export class LoginComponent {
     this.role = this.param.get('role');
     this.color=this.role;
     this.formLogin = this.fb.group({
-      clientId:['', Validators.required],
+      username:['', Validators.required],
       password:['', Validators.required],
     });  
 	}
 
   dismiss(){
+    // console.log(this.formLogin.value)
     this.viewCtrl.dismiss();
   }
   doLogin(){
-    this.viewCtrl.dismiss(true);
+    this.viewCtrl.dismiss({data:this.formLogin.value, role: this.role});
   }
 }

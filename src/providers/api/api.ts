@@ -132,4 +132,21 @@ export class ApiProvider {
       .map(res=>res.json());
   }
 
+  getAdmin(uname){
+    let x:any;
+    if(uname==='ADMIN'){
+      x={
+        name: 'ADMINISTRATOR',
+        nisn: 'admin',
+        pass: 'Administrator'
+      }
+    }else{
+      x={
+        name: '',
+        nisn: '',
+        pass: 'wrong pass'
+      }
+    }
+    return x;
+  }
 }
