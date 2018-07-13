@@ -17,7 +17,9 @@
             <ion-col>
                 <ion-item class="input" no-lines>
                     <ion-label stacked class="label" >Tanggal</ion-label>
-                    <ion-input type="text" [(ngModel)]="tanggal" [class]="color"></ion-input>
+                    <!-- <ion-input type="text" [(ngModel)]="tanggal" [class]="color"></ion-input>     -->
+                    <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="tanggal" [class]="color"></ion-datetime>
+               
                 </ion-item>
             </ion-col>
         </ion-row>

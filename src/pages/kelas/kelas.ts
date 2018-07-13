@@ -14,6 +14,8 @@ export class KelasPage {
   public thn: string;
   public smt: string;
   public kls: string;
+  public tahunAjar =[];
+
 
   public enableAdd: boolean = false;
 
@@ -24,6 +26,20 @@ export class KelasPage {
     public mdlCtrl: ModalController,
     public tool: ToolsProvider
   ) {
+    this.setTahunAjar();
+  }
+  setTahunAjar(){
+    let d = new Date();
+    let th = parseInt(d.getFullYear().toString());
+    for (let i =0 ; i<6 ; i++){
+      let it = {
+        value : th,
+        name : th + '/' + (th+1)
+      }
+      this.tahunAjar.push(it);
+      th--;
+    }
+    console.log(this.tahunAjar);
   }
 
   ionViewDidLoad() {
